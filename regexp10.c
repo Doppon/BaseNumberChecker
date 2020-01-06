@@ -12,18 +12,18 @@ int str2number(char* buf, int* num)
     char c = buf[i];
     if (state == 0) {		// S0
       if (c == '0') {
-		state = 1;
-		ret = 10;
-		number = 0;
+        state = 1;
+        ret = 10;
+        number = 0;
       }
       else if (c >= '1' && c <= '9') {
-		state = 2;
-		ret = 10;
-		number = (int)(c - '0');
+        state = 2;
+        ret = 10;
+        number = (int)(c - '0');
       }
       else {
-		ret = 0;
-		break;
+        ret = 0;
+        break;
       }
     }
     else if (state == 1) {	// S1
@@ -32,11 +32,11 @@ int str2number(char* buf, int* num)
     }
     else if (state == 2) {	// S2 
       if (c >= '0' && c <= '9') {
-		number = number * 10 + (c - '0');
+    		number = number * 10 + (c - '0');
       }
       else {
-		ret = 0;
-		break;
+        ret = 0;
+        break;
       }
     }
     else {
@@ -62,11 +62,11 @@ int main(void)
 
     ret = str2number(buf, &num);
     switch (ret) {
-    case 10:
-      printf("10進数: %d\n", num);
-      break;
-    default:
-      printf("文法エラー\n");
+      case 10:
+        printf("10進数: %d\n", num);
+        break;
+      default:
+        printf("文法エラー\n");
     }
     printf("> ");
     s = fgets(buf, BUFSIZ-1, stdin) ;
